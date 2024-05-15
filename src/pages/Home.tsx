@@ -1,11 +1,13 @@
-import React from "react";
-import { Button } from "../components/ui/button";
-import { Link } from "react-router-dom";
+import BookSeatsForm from "@/components/ui/BookSeatsForm";
 
 interface Props {}
 
 const Home = (props: Props) => {
-  return <div className="max-w-screen-xl mx-auto">Home</div>;
+  return (
+    <div className="flex flex-col items-center justify-center h-screen max-w-screen-xl mx-auto font-bold gap-y-4">
+      <BookSeatsForm />
+    </div>
+  );
 };
 
 export default Home;
