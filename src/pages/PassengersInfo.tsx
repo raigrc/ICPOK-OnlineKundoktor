@@ -63,7 +63,6 @@ const PassengersInfo = (props: Props) => {
       middlename1: "",
       lastname1: "",
       discounts1: "None",
-
     },
   });
 
@@ -217,7 +216,6 @@ const PassengersInfo = (props: Props) => {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit">Submit</Button>
                   </form>
                 </Form>
               </CardContent>
