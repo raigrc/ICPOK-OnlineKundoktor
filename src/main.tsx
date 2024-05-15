@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Layout from "./components/ui/Layout";
 import Home from "./pages/Home";
+import Search from "./pages/Search";
 import About from "./pages/About";
 import Schedule from "./pages/Schedule";
 import Rentals from "./pages/Rentals";
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
       },
       {
         path: "/about-us",
