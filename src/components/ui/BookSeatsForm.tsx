@@ -1,9 +1,8 @@
 import React from "react";
 import { Button } from "./button";
 import { Input } from "./input";
-import { Label } from "./label";
-import { Link } from "react-router-dom";
 import search from "../../assets/images/search-icon.svg";
+import company from "../../assets/images/company.svg";
 
 import {
   Select,
@@ -26,21 +25,23 @@ const BookSeatsForm = () => {
         </Button>
       </div>
       <div className="space-x-4 grid grid-cols-2 w-full">
-        <Select>
-          <SelectTrigger className="">
-            <SelectValue placeholder="Select a Company" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Bus Line Companies</SelectLabel>
-              <SelectItem value="apple">JAC Liner</SelectItem>
-              <SelectItem value="banana">Joybus Trasport</SelectItem>
-              <SelectItem value="blueberry">PP Bus Lines</SelectItem>
-              <SelectItem value="grapes">Metro Cebu Autobus Corp.</SelectItem>
-              <SelectItem value="pineapple">Narpin Transport</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        <div className="flex flex-col">
+          <Select id="company">
+          <SelectTrigger className="text-sm-bold">Company:
+              <SelectValue className="" placeholder="Select a Company" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Bus Line Companies</SelectLabel>
+                <SelectItem value="apple">JAC Liner</SelectItem>
+                <SelectItem value="banana">Joybus Trasport</SelectItem>
+                <SelectItem value="blueberry">PP Bus Lines</SelectItem>
+                <SelectItem value="grapes">Metro Cebu Autobus Corp.</SelectItem>
+                <SelectItem value="pineapple">Narpin Transport</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
         <Input
           label="Passenger: "
           className="w-full rounded-md pl-28 bg-transparent border-white"
