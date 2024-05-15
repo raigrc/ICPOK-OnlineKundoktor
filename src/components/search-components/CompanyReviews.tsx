@@ -64,7 +64,7 @@ const CompanyDetails: React.FC = () => {
            <div className="flex items-center"><BiBuilding size={30} className="mr-2"/>Company</div>
            <div className="flex items-center col-span-2"> 
             <div className="mr-2">:</div> 
-            <div>DLTB Co.DLTB Co.DLTB Co.DLTB Co.DLTB Co.DLTB Co.DLTB Co.DLTB Co.DLTB Co.DLTB Co.DLTB Co.DLTB Co.DLTB Co.</div>
+            <div>DLTB Co.</div>
            </div>          </div>
           <div className="grid grid-cols-3 mt-2">
             <div className="flex items-center"><BiLocationPlus size={30} className="mr-2" />From</div>
