@@ -1,7 +1,10 @@
 import React from "react";
+import Breadcrumbs from "../components/travel-and-plans-components/Breadcrumbs";
 
 const TravelPlans = () => {
-  return <div className="max-w-screen-xl mx-auto">Travel Plans</div>;
+  return (
+    <Breadcrumbs />
+  );
 };
 
 export default TravelPlans;
