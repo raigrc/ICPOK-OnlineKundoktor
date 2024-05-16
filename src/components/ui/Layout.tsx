@@ -39,7 +39,7 @@ const Layout = (props: Props) => {
             </NavLink>
           </NavigationMenuItem>
 
-          <NavigationMenuItem>
+          <NavigationMenuItem className="space-x-2">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -70,17 +70,6 @@ const Layout = (props: Props) => {
             >
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Schedule
-              </NavigationMenuLink>
-            </NavLink>
-
-            <NavLink
-              to="/rentals"
-              className={({ isActive }) =>
-                isActive ? "text-primary  font-bold" : ""
-              }
-            >
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Rentals
               </NavigationMenuLink>
             </NavLink>
 
@@ -120,7 +109,6 @@ const Layout = (props: Props) => {
               </DropdownMenuContent>
             </DropdownMenu>
           </NavigationMenuItem>
-
         </NavigationMenuList>
       </NavigationMenu>
 

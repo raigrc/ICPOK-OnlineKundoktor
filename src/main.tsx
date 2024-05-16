@@ -9,10 +9,11 @@ import Search from "./pages/Search";
 import TravelPlans from "./pages/TravelPlans";
 import About from "./pages/About";
 import Schedule from "./pages/Schedule";
-import Rentals from "./pages/Rentals";
 import Contact from "./pages/Contact";
 
 import { ThemeProvider } from "@/components/theme-provider";
+import PassengersInfo from "./pages/PassengersInfo";
+import TravelPlans from "./pages/TravelPlans";
 
 const router = createBrowserRouter([
   {
@@ -40,12 +41,16 @@ const router = createBrowserRouter([
         element: <Schedule />,
       },
       {
-        path: "/rentals",
-        element: <Rentals />,
-      },
-      {
         path: "/contacts",
         element: <Contact />,
+      },
+      {
+        path: "/passenger-info",
+        element: <PassengersInfo />,
+      },
+      {
+        path: "/travel-plan",
+        element: <TravelPlans />,
       },
     ],
   },
