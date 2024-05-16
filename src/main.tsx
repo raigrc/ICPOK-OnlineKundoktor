@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Layout from "./components/ui/Layout";
 import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
 import TravelPlans from "./pages/TravelPlans";
 import About from "./pages/About";
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
     ],
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
   },
 ]);
 
