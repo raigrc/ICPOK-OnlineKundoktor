@@ -173,7 +173,9 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ companyDetails }) => {
                 </div>
                 <div className="flex justify-end">
                   <span className="text-2xl font-bold flex items-end mr-4 h-full"><TbCurrencyPeso size={30} /> {detail.Price.toFixed(2)}</span>
-                  <Button className="font-bold h-14 text-lg">Reserve Now</Button>
+                  <a href="/travel-plans">
+                    <Button className="font-bold h-14 text-lg">Reserve Now</Button>
+                  </a>
                 </div>
               </div>
             </div>
