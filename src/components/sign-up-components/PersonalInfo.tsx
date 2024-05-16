@@ -1,4 +1,10 @@
-import { Button } from "../ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import FirstName from "../input-fields/first-name";
+import MiddleName from "../input-fields/middle-name";
+import LastName from "../input-fields/last-name";
+import Suffix from "../input-fields/suffix";
+import Gender from "../input-fields/gender";
 
 interface PersonalInfoProps {
     firstName: string;
@@ -14,8 +20,60 @@ interface PersonalInfoProps {
     handleNext: () => void;
 }
 
-const PersonalInfo: React.FC<PersonalInfoProps> = ({ firstName, setFirstName, middleName, setMiddleName, lastName, setLastName, suffix, setSuffix, gender, setGender, handleNext }) => {
-    return (<div className="grid grid-cols-2 bg-gray-800 p-8 rounded-md max-w-screen-xl mx-auto">
+const PersonalInfo: React.FC<PersonalInfoProps> = ({handleNext}/*{ firstName, setFirstName, middleName, setMiddleName, lastName, setLastName, suffix, setSuffix, gender, setGender, handleNext }*/) => {
+    return (<div className="flex items-center justify-center h-screen bg-black-100">
+        <Card className="w-2/3 bg-black-200">
+         <CardContent>
+            <div className="grid grid-cols-2 justify-end">
+            <div className="text-end text-balance border-r border-white pr-9 flex flex-col justify-between h-full">
+                <div>
+                <p className="text-h3 mb-2">Sign Up Now - Your Journey Starts Here!</p>
+                <p className="text-sm">
+                    Plan your trip effortlessly. 
+                    Reserve your seat now and choose your preferred departure time with ease. 
+                    Create an account to track your reservations, updates on schedules and special offers. 
+                    Start your journey by securing your bus ride today and enjoy a hassle-free travel experience.
+                </p>
+                </div>
+                <div className="text-sm flex justify-end gap-x-6">
+                <a href="">Terms</a>
+                <a href="">Privacy</a>
+                <a href="">Contact</a>
+                </div>
+            </div>
+
+            <div className="flex items-center justify-center w-full">
+                <div className="w-full px-9">
+                <FirstName />
+                <MiddleName />
+                <LastName />
+                <Suffix />
+                <Gender />
+                <div className="text-center my-6">
+                    <Button onClick={handleNext} className="w-full py-6 text-sm font-semibold">
+                        Next                    
+                    </Button>
+                </div>
+                <div className="text-center mt-3 text-sm">
+                    <span className="mr-2">
+                        Already have an account?
+                    </span>
+                    <a href="/login" className="underline underline-offset-1">
+                        Login now
+                    </a>
+                </div>
+                </div>
+            </div>
+            </div>
+         </CardContent>
+        </Card>
+    </div>
+    );
+};
+
+
+/**
+<div className="grid grid-cols-2 bg-gray-800 p-8 rounded-md max-w-screen-xl mx-auto">
         <div className="grid grid-rows-3 text-right px-8">
             <span className="text-5xl font-bold mb-2">
                 Sign Up Now - Your Journey Starts Here!
@@ -94,7 +152,5 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ firstName, setFirstName, mi
             </div>
         </div>        
     </div>
-    );
-};
-
+ */
 export default PersonalInfo;
