@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import { ThemeProvider } from "@/components/theme-provider";
 import PassengersInfo from "./pages/PassengersInfo";
 import TravelPlans from "./pages/TravelPlans";
+import BookConfirmation from "./pages/BookConfirmation";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/travel-plan",
         element: <TravelPlans />,
+      },
+      {
+        path: "/book-confirmation",
+        element: <BookConfirmation />,
       },
     ],
   },
