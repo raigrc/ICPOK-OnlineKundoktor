@@ -1,4 +1,3 @@
-import React from "react";
 import Breadcrumbs from "../components/travel-and-plans-components/Breadcrumbs";
 
 const TravelPlans = () => {
