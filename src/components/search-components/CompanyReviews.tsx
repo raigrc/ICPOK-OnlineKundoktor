@@ -64,41 +64,41 @@ const CompanyDetails: React.FC = () => {
      <div className="grid grid-cols-2 gap-4 text-white bg-zinc-950 dark:bg-gray-900 rounded-md">
        <div className="p-8">
           <div className="grid grid-cols-3 mt-2">
-           <div className="flex items-center"><BiBuilding size={30} className="mr-2"/>Company</div>
+           <div className="flex items-center font-bold"><BiBuilding size={30} className="mr-2"/>Company</div>
            <div className="flex items-start col-span-2"> 
-            <div className="mr-2">:</div> 
+            <div className="mr-2 font-bold">:</div> 
             <div>DLTB Co.</div>
            </div>          </div>
           <div className="grid grid-cols-3 mt-2">
-            <div className="flex items-center"><BiLocationPlus size={30} className="mr-2" />From</div>
+            <div className="flex items-center font-bold"><BiLocationPlus size={30} className="mr-2" />From</div>
             <div className="flex items-start col-span-2"> 
-            <div className="mr-2">:</div> 
+            <div className="mr-2 font-bold">:</div> 
             <div>Cubao, Manila</div>
            </div>          </div>
           <div className="grid grid-cols-3 mt-2">
-           <div className="flex items-center"><BiLocationPlus size={30} className="mr-2" />To</div>
+           <div className="flex items-center font-bold"><BiLocationPlus size={30} className="mr-2" />To</div>
            <div className="flex items-start col-span-2"> 
-            <div className="mr-2">:</div> 
+            <div className="mr-2 font-bold">:</div> 
             <div>Legazpi Grand Central Terminal, Albay</div>
            </div>          </div>
           <div className="grid grid-cols-3 mt-2">
-            <div className="flex items-center"><BiSolidTimeFive size={30} className="mr-2" />Departure</div>
+            <div className="flex items-center font-bold"><BiSolidTimeFive size={30} className="mr-2" />Departure</div>
             <div className="flex items-start col-span-2"> 
-            <div className="mr-2">:</div> 
+            <div className="mr-2 font-bold">:</div> 
             <div>05:00pm (GMT+)</div>
            </div>           
           </div>
           <div className="grid grid-cols-3 mt-2">
-           <div className="flex items-center"><BiSolidTimeFive size={30} className="mr-2" />Arrival</div>
+           <div className="flex items-center font-bold"><BiSolidTimeFive size={30} className="mr-2" />Arrival</div>
            <div className="flex items-start col-span-2"> 
-            <div className="mr-2">:</div> 
+            <div className="mr-2 font-bold">:</div> 
             <div>10:30pm (GMT+)</div>
            </div>
           </div>
           <div className="grid grid-cols-3 mt-2">
-           <div className="flex items-center"><BiChevronsRight size={30} className="mr-2" />Duration</div>
+           <div className="flex items-center font-bold"><BiChevronsRight size={30} className="mr-2" />Duration</div>
            <div className="flex items-center col-span-2">
-            <div className="mr-2">:</div> 
+            <div className="mr-2 font-bold">:</div> 
             <div>5h 30m</div>
            </div>
           </div>

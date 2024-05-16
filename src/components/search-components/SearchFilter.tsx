@@ -26,7 +26,7 @@ const SearchFilter: React.FC = () => {
      <div className='grid grid-cols-1 py-4'>
         <Button className='h-12 text-md flex items-center justify-center gap-2'>
             <TbZoom size={25}/>
-            <span>Search</span>
+            <span className='font-bold'>Search</span>
         </Button>
      </div>
      </>
@@ -37,14 +37,14 @@ const TripButtons: React.FC<{ tripType: string; setTripType: React.Dispatch<Reac
     return ( 
         <>
             <Button 
-                className='h-12' 
+                className='h-12 font-bold' 
                 variant={tripType === 'round-trip' ? "outline" : undefined}
                 onClick={() => setTripType("one-way")}
             >
                 One Way
             </Button>
             <Button 
-                className='h-12' 
+                className='h-12 font-bold' 
                 variant={tripType === 'round-trip' ? undefined : "outline"}
                 onClick={() => setTripType("round-trip")}
             >
@@ -57,7 +57,7 @@ const TripButtons: React.FC<{ tripType: string; setTripType: React.Dispatch<Reac
 const SelectDropdown: React.FC<{ icon: ReactNode; selectTitle: string; options: { value: string; label: string; }[]}> = ({ icon, selectTitle, options }) => (
     <div className='border-2 rounded-sm flex items-center py-3 pl-3 h-12'>
         {icon}
-        <p className='pl-2 pr-5'>{selectTitle + ':'}</p>
+        <p className='pl-2 pr-5 font-bold'>{selectTitle + ':'}</p>
         <select className='w-full h-11 bg-white text-zinc-950 dark:bg-zinc-950 dark:text-white'>
             {options.map((option, index) => (
                 <option key={index} value={option.value}>{option.label}</option>
@@ -69,7 +69,7 @@ const SelectDropdown: React.FC<{ icon: ReactNode; selectTitle: string; options: 
 const InputField: React.FC<{ icon: React.ReactNode; selectTitle: string }> = ({ icon, selectTitle }) => (
     <div className='border-2 rounded-sm flex items-center py-3 pl-3 h-12'>
         {icon}
-        <p className='pl-2 pr-5'>{selectTitle + ':'}</p>
+        <p className='pl-2 pr-5 font-bold'>{selectTitle + ':'}</p>
         <input 
             className='w-full h-11 bg-white text-zinc-950 dark:bg-zinc-950 dark:text-white' 
             type="number" 
@@ -82,7 +82,7 @@ const DestinationRangeField: React.FC<{ firstIcon: React.ReactNode; secondIcon: 
     <div className='border-2 rounded-sm grid grid-cols-2 h-12'>
         <div className='flex items-center border-r-2 rounded-sm pl-2'>
             {firstIcon}
-            <p className='pl-2 pr-5'>From:</p>
+            <p className='pl-2 pr-5 font-bold'>From:</p>
             <input 
                 className='w-full h-11 bg-white text-zinc-950 dark:bg-zinc-950 dark:text-white' 
                 type='text' 
@@ -91,7 +91,7 @@ const DestinationRangeField: React.FC<{ firstIcon: React.ReactNode; secondIcon: 
         </div>
         <div className='flex items-center pl-2'>
             {secondIcon}
-            <p className='pl-2 pr-5'>To:</p>
+            <p className='pl-2 pr-5 font-bold'>To:</p>
             <input 
                 className='w-full h-11 bg-white text-zinc-950 dark:bg-zinc-950 dark:text-white' 
                 type='text' 
@@ -105,7 +105,7 @@ const DestinationDateRangeField: React.FC<{ firstIcon: React.ReactNode; secondIc
     <div className='border-2 rounded-sm grid grid-cols-2 h-12'>
         <div className='flex items-center border-r-2 rounded-sm pl-2'>
             {firstIcon}
-            <p className='pl-2 pr-5'>Departure:</p>
+            <p className='pl-2 pr-5 font-bold'>Departure:</p>
             <input 
                 className='w-full h-11 bg-white text-zinc-950 dark:bg-zinc-950 dark:text-white' 
                 type='date' 
@@ -114,7 +114,7 @@ const DestinationDateRangeField: React.FC<{ firstIcon: React.ReactNode; secondIc
         </div>
         <div className='flex items-center pl-2'>
             {secondIcon}
-            <p className='pl-2 pr-5'>Return:</p>
+            <p className='pl-2 pr-5 font-bold'>Return:</p>
             <input 
                 className='w-full h-11 bg-white text-zinc-950 dark:bg-zinc-950 dark:text-white' 
                 type='date' 
