@@ -96,7 +96,9 @@ const Layout = (props: Props) => {
             </NavLink>
 
             <NavigationMenuLink className="ml-2 space-x-2">
-              <Button variant="outline">Login</Button>
+              <NavLink to="/login">
+                <Button variant="outline">Login</Button>
+              </NavLink>
               <Button>Sign up</Button>
               {/* <DropdownMenu>
                 <DropdownMenuTrigger asChild>

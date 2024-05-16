@@ -21,7 +21,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {label && (
-          <label className="absolute text-white top-4 left-3 -mt-2 px-1">
+          <label className="absolute text-white top-5 left-3 -mt-2 px-1">
             {label}
           </label>
         )}
