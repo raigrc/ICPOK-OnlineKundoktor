@@ -40,6 +40,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ firstName, setFirstName, mi
                     type='text' 
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
+                    required
                 /> 
             </div>
             <div className='flex items-center border-2 rounded-sm border-white mb-3'>
@@ -49,6 +50,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ firstName, setFirstName, mi
                     type='text' 
                     value={middleName}
                     onChange={(e) => setMiddleName(e.target.value)}
+                    required
                 /> 
             </div>
             <div className='flex items-center border-2 rounded-sm border-white mb-3'>
@@ -58,6 +60,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ firstName, setFirstName, mi
                     type='text' 
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
+                    required
                 /> 
             </div>
             <div className='flex items-center border-2 rounded-sm border-white mb-3'>
@@ -71,7 +74,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ firstName, setFirstName, mi
             </div>
             <div className='flex items-center border-2 rounded-sm border-white mb-3'>
                 <p className='pl-6 font-bold w-2/12'>Gender:</p>
-                <select className='w-11/12 h-11 bg-transparent' value={gender} onChange={(e) => setGender(e.target.value)}>
+                <select className='w-11/12 h-11 bg-transparent' value={gender} onChange={(e) => setGender(e.target.value)} required>
                     <option className="text-black" value="">Select Your Gender</option>
                     <option className="text-black" value="male">Male</option>
                     <option className="text-black" value="female">Female</option>

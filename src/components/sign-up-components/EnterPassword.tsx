@@ -36,6 +36,7 @@ const EnterPassword: React.FC<EnterPasswordProps> = ({ password, setPassword, co
                         type='password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} 
+                        required
                     /> 
                 </div>
                 <div className='flex items-center border-2 rounded-sm border-white mb-3'>
@@ -45,6 +46,7 @@ const EnterPassword: React.FC<EnterPasswordProps> = ({ password, setPassword, co
                         type='password'
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)} 
+                        required
                     /> 
                 </div>
                 <div className='grid grid-cols-2 gap-2 py-3'>

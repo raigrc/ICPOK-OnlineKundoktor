@@ -38,6 +38,7 @@ const ContactDetails: React.FC<ContactDetailsProps> = ({ mobileNo, setMobileNo, 
                         placeholder="+63"
                         value={mobileNo}
                         onChange={(e) => setMobileNo(e.target.value)}
+                        required
                     /> 
                 </div>
                 <div className='flex items-center border-2 rounded-sm border-white mb-3'>
@@ -48,6 +49,7 @@ const ContactDetails: React.FC<ContactDetailsProps> = ({ mobileNo, setMobileNo, 
                         placeholder="sample@mail.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     /> 
                 </div>
                 <div className='grid grid-cols-2 gap-2 py-3'>

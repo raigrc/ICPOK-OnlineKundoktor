@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PersonalInfo from "../components/sign-up-components/PersonalInfo";
 import ContactDetails from "../components/sign-up-components/ContactDetails";
 import EnterPassword from "../components/sign-up-components/EnterPassword";
@@ -39,41 +39,43 @@ const SignUp = () => {
 
     return (
         <div className="flex justify-center items-center h-screen bg-gray-900 p-8">
-            {step === 1 && (
-                <PersonalInfo
-                    firstName={firstName}
-                    setFirstName={setFirstName}
-                    middleName={middleName}
-                    setMiddleName={setMiddleName}
-                    lastName={lastName}
-                    setLastName={setLastName}
-                    suffix={suffix}
-                    setSuffix={setSuffix}
-                    gender={gender}
-                    setGender={setGender}
-                    handleNext={handleNext}
-                />
-            )}
-            {step === 2 && (
-                <ContactDetails
-                    mobileNo={mobileNo}
-                    setMobileNo={setMobileNo}
-                    email={email}
-                    setEmail={setEmail}
-                    handleBack={handleBack}
-                    handleNext={handleNext}
-                />
-            )}
-            {step === 3 && (
-                <EnterPassword
-                    password={password}
-                    setPassword={setPassword}
-                    confirmPassword={confirmPassword}
-                    setConfirmPassword={setConfirmPassword}
-                    handleBack={handleBack}
-                    handleSubmit={handleSubmit}
-                />
-            )}
+            <form>
+                {step === 1 && (
+                    <PersonalInfo
+                        firstName={firstName}
+                        setFirstName={setFirstName}
+                        middleName={middleName}
+                        setMiddleName={setMiddleName}
+                        lastName={lastName}
+                        setLastName={setLastName}
+                        suffix={suffix}
+                        setSuffix={setSuffix}
+                        gender={gender}
+                        setGender={setGender}
+                        handleNext={handleNext}
+                    />
+                )}
+                {step === 2 && (
+                    <ContactDetails
+                        mobileNo={mobileNo}
+                        setMobileNo={setMobileNo}
+                        email={email}
+                        setEmail={setEmail}
+                        handleBack={handleBack}
+                        handleNext={handleNext}
+                    />
+                )}
+                {step === 3 && (
+                    <EnterPassword
+                        password={password}
+                        setPassword={setPassword}
+                        confirmPassword={confirmPassword}
+                        setConfirmPassword={setConfirmPassword}
+                        handleBack={handleBack}
+                        handleSubmit={handleSubmit}
+                    />
+                )}
+            </form>
         </div>
     );    
 };
