@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import PassengersInfo from "./pages/PassengersInfo";
+import TravelPlans from "./pages/TravelPlans";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/passenger-info",
         element: <PassengersInfo />,
+      },
+      {
+        path: "/travel-plan",
+        element: <TravelPlans />,
       },
     ],
   },

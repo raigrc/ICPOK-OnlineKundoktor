@@ -23,7 +23,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { toast } from "@/components/ui/use-toast";
+import { toast, useToast  } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 
@@ -47,12 +47,17 @@ const FormSchema = z.object({
   discounts1: z.enum(["None", "Student", "Senior Citizen", "PWD"]),
 });
 
-interface Props {}
+interface Passengers {
+  id: number;
+}
 
-const PassengersInfo = (props: Props) => {
+const passenger: Passengers[] = [{ id: 1 }, { id: 2 }, { id: 3 }];
+
+const PassengersInfo: React.FC = () => {
   const [selectedDiscounts, setSelectedDiscounts] = useState<Array<string>>([
     "",
   ]);
+  const { toast } = useToast();
 
   //form default values
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -91,17 +96,23 @@ const PassengersInfo = (props: Props) => {
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form>
+              <form onSubmit={form.handleSubmit(onSubmit)}>
                 <FormField
                   control={form.control}
                   name="seats"
                   render={({ field }) => (
-                    <FormItem className="flex items-center space-x-2">
-                      <FormLabel>Seat(s):</FormLabel>
+                    <FormItem className="relative flex items-center space-x-2">
+                      <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                        Seat(s):
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input
+                          className="pl-[4.5rem]"
+                          placeholder="Choose your seat(s)"
+                          {...field}
+                        />
                       </FormControl>
-                      <Button>Choose</Button>
+                      <Button type="submit">Choose</Button>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -111,14 +122,14 @@ const PassengersInfo = (props: Props) => {
           </CardContent>
         </Card>
 
-        {[1, 2, 3].map((passengerIndex) => (
+        {passenger.map((passenger) => (
           <div>
-            <Card key={passengerIndex}>
+            <Card key={passenger.id}>
               <CardHeader className="border-b-2 border-primary">
                 <CardTitle className="flex flex-row items-center">
-                  Passenger #{passengerIndex}
+                  Passenger #{passenger.id}
                   <Badge variant="green">
-                    {selectedDiscounts[passengerIndex - 1]}
+                    {selectedDiscounts[passenger.id]}
                   </Badge>
                 </CardTitle>
               </CardHeader>
@@ -127,12 +138,18 @@ const PassengersInfo = (props: Props) => {
                   <form onSubmit={form.handleSubmit(onSubmit)}>
                     <FormField
                       control={form.control}
-                      name={`firstname${passengerIndex}`}
+                      name={`firstname${passenger.id}`}
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Firstname:</FormLabel>
+                        <FormItem className="relative">
+                          <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                            Firstname:
+                          </FormLabel>
                           <FormControl>
-                            <Input placeholder="First Name" {...field} />
+                            <Input
+                              className="pl-[7.5rem]"
+                              placeholder="First Name"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -141,12 +158,18 @@ const PassengersInfo = (props: Props) => {
 
                     <FormField
                       control={form.control}
-                      name={`middlename${passengerIndex}`}
+                      name={`middlename${passenger.id}`}
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Middlename:</FormLabel>
+                        <FormItem className="relative">
+                          <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                            Middlename:
+                          </FormLabel>
                           <FormControl>
-                            <Input placeholder="Middle Name" {...field} />
+                            <Input
+                              className="pl-[7.5rem]"
+                              placeholder="Middle Name"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -155,12 +178,18 @@ const PassengersInfo = (props: Props) => {
 
                     <FormField
                       control={form.control}
-                      name={`lastname${passengerIndex}`}
+                      name={`lastname${passenger.id}`}
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Lastname:</FormLabel>
+                        <FormItem className="relative">
+                          <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                            Lastname:
+                          </FormLabel>
                           <FormControl>
-                            <Input placeholder="Last Name" {...field} />
+                            <Input
+                              className="pl-[7.5rem]"
+                              placeholder="Last Name"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -168,15 +197,15 @@ const PassengersInfo = (props: Props) => {
                     />
                     <FormField
                       control={form.control}
-                      name={`discounts${passengerIndex}`}
+                      name={`discounts${passenger.id}`}
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
                             <RadioGroup
                               onValueChange={(value) =>
-                                handleDiscountChange(passengerIndex - 1, value)
+                                handleDiscountChange(passenger.id, value)
                               }
-                              value={selectedDiscounts[passengerIndex - 1]}
+                              value={selectedDiscounts[passenger.id]}
                               defaultValue=""
                               className="flex flex-row justify-end space-x-2"
                             >
@@ -184,27 +213,34 @@ const PassengersInfo = (props: Props) => {
                                 <FormControl className="space-x-2">
                                   <RadioGroupItem
                                     value="Student"
-                                    id="student"
+                                    id={`student${passenger.id}`}
                                   />
                                 </FormControl>
-                                <Label htmlFor="Student">Student</Label>
+                                <Label htmlFor={`student${passenger.id}`}>
+                                  Student
+                                </Label>
                               </FormItem>
                               <FormItem className="flex flex-row items-center space-x-1">
                                 <FormControl className="space-x-2">
                                   <RadioGroupItem
                                     value="Senior Citizen"
-                                    id="senior-citizen"
+                                    id={`senior-citizen${passenger.id}`}
                                   />
                                 </FormControl>
-                                <Label htmlFor="Senior Citizen">
+                                <Label
+                                  htmlFor={`senior-citizen${passenger.id}`}
+                                >
                                   Senior Citizen
                                 </Label>
                               </FormItem>
                               <FormItem className="flex flex-row items-center space-x-1">
                                 <FormControl className="space-x-2">
-                                  <RadioGroupItem value="PWD" id="pwd" />
+                                  <RadioGroupItem
+                                    value="PWD"
+                                    id={`pwd${passenger.id}`}
+                                  />
                                 </FormControl>
-                                <Label htmlFor="PWD">
+                                <Label htmlFor={`pwd${passenger.id}`}>
                                   PWD{" "}
                                   <span className="text-sm">
                                     (Person With Disablities)
@@ -224,7 +260,7 @@ const PassengersInfo = (props: Props) => {
         ))}
         <div className="flex items-center justify-end py-6 space-x-2">
           <Button variant="outline">Back</Button>
-          <Button>Next</Button>
+          <Button>Submit</Button>
         </div>
       </div>
 
