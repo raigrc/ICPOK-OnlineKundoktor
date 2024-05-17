@@ -31,7 +31,7 @@ const CompanyReviews: React.FC = () => {
     }
   ];
 
-  return (<div className='py-4'>
+  return (<div className='bg-black-100 px-20'>
     <div className="grid grid-cols-7 border-b-2 black text-center">
       <DateFilter />
     </div>
@@ -73,7 +73,7 @@ const DateFilter: React.FC = () => {
     <>
       {formattedDates.map(({ index, formattedDate }) => (
         <div
-          className={`py-3 font-bold ${index === selectedDateIndex ? 'bg-zinc-950 text-white dark:bg-white dark:text-zinc-950' : 'hover:bg-zinc-950 hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-zinc-950 hover:cursor-pointer'}`}
+          className={`py-3 font-bold ${index === selectedDateIndex ? 'bg-zinc-950 text-white' : 'hover:bg-zinc-950 hover:text-white hover:cursor-pointer'}`}
           key={index}
           onClick={() => handleDateClick(index)}
         >
@@ -104,8 +104,8 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ companyDetails }) => {
   return (
     <>
       {companyDetails.map((detail, index) => (
-        <div className="w-full mt-8" key={index}>
-          <div className="grid grid-cols-2 gap-4 text-white bg-zinc-950 dark:bg-gray-900 rounded-md">
+        <div className="w-full mt-8 mb-8" key={index}>
+          <div className="grid grid-cols-2 gap-4 bg-black-200 rounded-md">
             <div className="p-8">
               <div className="grid grid-cols-3 mt-2">
                 <div className="flex items-center font-bold"><BiBuilding size={30} className="mr-2" />Company</div>
