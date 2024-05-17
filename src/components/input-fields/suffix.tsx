@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Select,
   SelectTrigger,
@@ -12,7 +13,12 @@ interface SuffixOption {
   value: string;
 }
 
-const Suffix = () => {
+interface SuffixProps {
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+const Suffix: React.FC<SuffixProps> = ({ onChange }) => {
   const suffixOptions: SuffixOption[] = [
     { label: "Select Your Suffix", value: "select-your-suffix" },
     { label: "Jr.", value: "jr" },
@@ -20,8 +26,14 @@ const Suffix = () => {
     { label: "III", value: "iii" },
   ];
 
+  const handleValueChange = (newValue: string) => {
+    if (onChange) {
+      onChange(newValue);
+    }
+  };
+
   return (
-    <Select defaultValue="select-your-suffix">
+    <Select onValueChange={handleValueChange} defaultValue="select-your-suffix">
       <SelectTrigger className="h-[50px] py-3.5 mb-6">
         <SelectValue />
       </SelectTrigger>

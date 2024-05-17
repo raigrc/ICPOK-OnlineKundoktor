@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Select,
   SelectTrigger,
@@ -12,15 +13,27 @@ interface GenderOption {
   value: string;
 }
 
-const Gender = () => {
+interface GenderProps {
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+const Gender: React.FC<GenderProps> = ({ onChange }) => {
   const genderOptions: GenderOption[] = [
     { label: "Select Your Gender", value: "select-your-gender" },
-    { label: "Male", value: "Male" },
-    { label: "Female", value: "Female" },
+    { label: "Male", value: "male" },
+    { label: "Female", value: "female" },
+    { label: "Other", value: "other" },
   ];
 
+  const handleValueChange = (newValue: string) => {
+    if (onChange) {
+      onChange(newValue);
+    }
+  };
+
   return (
-    <Select defaultValue="select-your-gender">
+    <Select onValueChange={handleValueChange} defaultValue="select-your-gender">
       <SelectTrigger className="h-[50px] py-3.5 mb-6">
         <SelectValue />
       </SelectTrigger>
