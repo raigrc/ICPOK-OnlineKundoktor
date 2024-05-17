@@ -5,15 +5,20 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Layout from "./components/ui/Layout";
 import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
 import About from "./pages/About";
 import Schedule from "./pages/Schedule";
 import Contact from "./pages/Contact";
-
+import Login from "./auth/LoginCommuter";
 import { ThemeProvider } from "@/components/theme-provider";
+import LoginAdmin from "./auth/LoginAdmin";
+import LoginEmployee from "./auth/LoginEmployee";
+import LoginSuper from "./auth/LoginSuper";
 import PassengersInfo from "./pages/PassengersInfo";
 import TravelPlans from "./pages/TravelPlans";
 import BookConfirmation from "./pages/BookConfirmation";
+
 
 const router = createBrowserRouter([
   {
@@ -58,12 +63,34 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/login-admin",
+    element: <LoginAdmin />,
+  },
+  {
+    path: "/login-employee",
+    element: <LoginEmployee />,
+  },
+  {
+    path: "/login-super",
+    element: <LoginSuper />,
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <div className="bg-booking-bg min-h-screen">
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </div>
   </React.StrictMode>
 );

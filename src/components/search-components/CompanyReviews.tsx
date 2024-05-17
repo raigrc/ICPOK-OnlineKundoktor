@@ -3,6 +3,7 @@ import { BiBuilding, BiLocationPlus, BiSolidTimeFive, BiChevronsRight, BiDesktop
 import { PiSnowflakeBold } from "react-icons/pi";
 import { TbCurrencyPeso } from "react-icons/tb";
 import { Button } from "../ui/button";
+import StarRating from "./StarRating";
 
 const CompanyReviews: React.FC = () => {
 
@@ -14,7 +15,7 @@ const CompanyReviews: React.FC = () => {
       "Departure": "05:00pm (GMT+)",
       "Arrival": "10:30pm (GMT+)",
       "Duration": "5h 30m",
-      "Rating": 4,
+      "Rating": 3.3,
       "Reviews": 82,
       "Price": 995.00
     },
@@ -25,14 +26,15 @@ const CompanyReviews: React.FC = () => {
       "Departure": "05:00pm (GMT+)",
       "Arrival": "10:30pm (GMT+)",
       "Duration": "5h 30m",
-      "Rating": 1,
+      "Rating": 1.0,
       "Reviews": 82,
       "Price": 995.00
     }
   ];
 
-  return (<div className='py-4'>
+  return (<div className='bg-black-100 px-20'>
     <div className="grid grid-cols-7 border-b-2 black text-center">
+
       <DateFilter />
     </div>
     <CompanyDetails companyDetails={companyDetails} />
@@ -73,7 +75,7 @@ const DateFilter: React.FC = () => {
     <>
       {formattedDates.map(({ index, formattedDate }) => (
         <div
-          className={`py-3 font-bold ${index === selectedDateIndex ? 'bg-zinc-950 text-white dark:bg-white dark:text-zinc-950' : 'hover:bg-zinc-950 hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-zinc-950 hover:cursor-pointer'}`}
+          className={`py-3 font-bold ${index === selectedDateIndex ? 'bg-zinc-950 text-white' : 'hover:bg-zinc-950 hover:text-white hover:cursor-pointer'}`}
           key={index}
           onClick={() => handleDateClick(index)}
         >
@@ -104,8 +106,8 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ companyDetails }) => {
   return (
     <>
       {companyDetails.map((detail, index) => (
-        <div className="w-full mt-8" key={index}>
-          <div className="grid grid-cols-2 gap-4 text-white bg-zinc-950 dark:bg-gray-900 rounded-md">
+        <div className="w-full mt-8 mb-8" key={index}>
+          <div className="grid grid-cols-2 gap-4 bg-black-200 rounded-md">
             <div className="p-8">
               <div className="grid grid-cols-3 mt-2">
                 <div className="flex items-center font-bold"><BiBuilding size={30} className="mr-2" />Company</div>
@@ -153,28 +155,23 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ companyDetails }) => {
             <div className="p-8">
               <div className="grid grid-rows-[auto auto auto auto] gap-3">
                 <div className="flex justify-end">
-                  {[...Array(5)].map((_, i) => (
-                    <React.Fragment key={i}>
-                      <input type="radio" id={`star${5-i}`} name={`rating-${index}`} value={5-i} className="hidden" />
-                      <label htmlFor={`star${5-i}`} className="text-4xl mr-2">&#9733;</label>
-                    </React.Fragment>
-                  ))}
+                  <StarRating rating={detail.Rating} />
                 </div>
                 <div className="flex justify-end">
                   <div className="grid grid-cols-2 mr-4">
-                    <span className="font-bold">{detail.Rating}.0</span>
+                    <span className="font-bold">{detail.Rating}</span>
                     <span>{detail.Reviews} reviews</span>
                   </div>
                 </div>
-                <div className="flex justify-end p-5 gap-3">
+                <div className="flex justify-end gap-3 p-5">
                   <BiDesktop size={30} />
                   <BiWifi size={30} />
                   <PiSnowflakeBold size={30} />
                 </div>
                 <div className="flex justify-end">
-                  <span className="text-2xl font-bold flex items-end mr-4 h-full"><TbCurrencyPeso size={30} /> {detail.Price.toFixed(2)}</span>
+                  <span className="flex items-end h-full mr-4 text-2xl font-bold"><TbCurrencyPeso size={30} /> {detail.Price.toFixed(2)}</span>
                   <a href="/travel-plans">
-                    <Button className="font-bold h-14 text-lg">Reserve Now</Button>
+                    <Button className="text-lg font-bold h-14">Reserve Now</Button>
                   </a>
                 </div>
               </div>
