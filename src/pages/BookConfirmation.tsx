@@ -8,6 +8,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -34,67 +43,104 @@ interface Props {}
 
 const BookConfirmation = (props: Props) => {
   return (
-    <div className="flex w-full max-w-screen-xl mx-auto space-x-3">
-      <div className="w-3/4 py-3 space-y-3">
-        {/* Travel Details */}
-        <TravelDetails />
+    <div className="w-full max-w-screen-xl mx-auto ">
+      <div>
+        <BreadCrumb />
+      </div>
 
-        {/* //Bus Details */}
-        <BusDetails />
+      <div className="flex w-full space-x-3">
+        <div className="w-3/4 py-3 space-y-3">
+          {/* Travel Details */}
+          <TravelDetails />
 
-        {/* Passengers */}
-        <Passenger />
+          {/* //Bus Details */}
+          <BusDetails />
 
-        {/* Contact Details */}
-        <ContactDetails />
-        <div className="flex items-center justify-end py-6 space-x-3">
-          <Button size="lg" variant="outline">
-            Back
-          </Button>
-          <Button size="lg">Next</Button>
+          {/* Passengers */}
+          <Passenger />
+
+          {/* Contact Details */}
+          <ContactDetails />
+          <div className="flex items-center justify-end py-6 space-x-3">
+            <Button size="lg" variant="outline">
+              Back
+            </Button>
+            <Button size="lg">Next</Button>
+          </div>
+        </div>
+
+        <div className="w-1/4 py-3 ">
+          <Card className="sticky top-2">
+            <CardHeader className="border-b-2 border-primary">
+              <CardTitle>Receipt</CardTitle>
+            </CardHeader>
+            <CardContent className="h-56">
+              <div className="flex flex-row items-center justify-between flex-1">
+                <h3>Tickets</h3>
+                <div className="flex items-center justify-between w-1/4">
+                  <p>&#8369;</p>
+                  <p>999.00</p>
+                </div>
+              </div>
+              <div className="flex flex-row items-center justify-between flex-1">
+                <h3>Taxes</h3>
+                <div className="flex items-center justify-between w-1/4">
+                  <p>&#8369;</p>
+                  <p>50.00</p>
+                </div>
+              </div>
+              <div className="flex flex-row items-center justify-between flex-1">
+                <h3>Discount</h3>
+                <div className="flex items-center justify-between w-1/4 text-green-400">
+                  <p>&#8369;</p>
+                  <p>-50.00</p>
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="border-t-2 border-primary">
+              <div className="flex flex-row items-center justify-between flex-1">
+                <h3>Total</h3>
+                <div className="flex items-center justify-between w-1/4">
+                  <p>&#8369;</p>
+                  <p>999.00</p>
+                </div>
+              </div>
+            </CardFooter>
+          </Card>
         </div>
       </div>
-
-      <div className="w-1/4 py-3 ">
-        <Card className="sticky top-2">
-          <CardHeader className="border-b-2 border-primary">
-            <CardTitle>Receipt</CardTitle>
-          </CardHeader>
-          <CardContent className="h-56">
-            <div className="flex flex-row items-center justify-between flex-1">
-              <h3>Tickets</h3>
-              <div className="flex items-center justify-between w-1/4">
-                <p>&#8369;</p>
-                <p>999.00</p>
-              </div>
-            </div>
-            <div className="flex flex-row items-center justify-between flex-1">
-              <h3>Taxes</h3>
-              <div className="flex items-center justify-between w-1/4">
-                <p>&#8369;</p>
-                <p>50.00</p>
-              </div>
-            </div>
-            <div className="flex flex-row items-center justify-between flex-1">
-              <h3>Discount</h3>
-              <div className="flex items-center justify-between w-1/4 text-green-400">
-                <p>&#8369;</p>
-                <p>-50.00</p>
-              </div>
-            </div>
-          </CardContent>
-          <CardFooter className="border-t-2 border-primary">
-            <div className="flex flex-row items-center justify-between flex-1">
-              <h3>Total</h3>
-              <div className="flex items-center justify-between w-1/4">
-                <p>&#8369;</p>
-                <p>999.00</p>
-              </div>
-            </div>
-          </CardFooter>
-        </Card>
-      </div>
     </div>
+  );
+};
+
+const BreadCrumb: React.FC = () => {
+  return (
+    <Breadcrumb className="py-6">
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/travel-plan" className="text-green-400">
+            Travel Plan
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/passenger-info" className="text-green-400">
+            Passengers
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage className="text-green-400">
+            Confirmation
+          </BreadcrumbPage>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Payment Method</BreadcrumbPage>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+      </BreadcrumbList>
+    </Breadcrumb>
   );
 };
 
@@ -325,7 +371,6 @@ const Passenger: React.FC = () => {
 };
 
 const ContactDetails: React.FC = () => {
-
   const contactDetails = [
     {
       ContactNumber: "+63 9123456789",
