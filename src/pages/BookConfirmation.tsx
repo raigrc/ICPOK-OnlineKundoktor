@@ -44,9 +44,7 @@ interface Props {}
 const BookConfirmation = (props: Props) => {
   return (
     <div className="w-full max-w-screen-xl mx-auto ">
-      <div>
-        <BreadCrumb />
-      </div>
+      <BreadCrumb />
 
       <div className="flex w-full space-x-3">
         <div className="w-3/4 py-3 space-y-3">
