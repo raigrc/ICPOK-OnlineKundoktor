@@ -32,7 +32,7 @@ const CompanyReviews: React.FC = () => {
   ];
 
   return (<div className='py-4'>
-    <div className="grid grid-cols-7 border-b-2 black text-center">
+    <div className="grid grid-cols-7 text-center border-b-2 black">
       <DateFilter />
     </div>
     <CompanyDetails companyDetails={companyDetails} />
@@ -105,7 +105,7 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ companyDetails }) => {
     <>
       {companyDetails.map((detail, index) => (
         <div className="w-full mt-8" key={index}>
-          <div className="grid grid-cols-2 gap-4 text-white bg-zinc-950 dark:bg-gray-900 rounded-md">
+          <div className="grid grid-cols-2 gap-4 text-white rounded-md bg-zinc-950 dark:bg-gray-900">
             <div className="p-8">
               <div className="grid grid-cols-3 mt-2">
                 <div className="flex items-center font-bold"><BiBuilding size={30} className="mr-2" />Company</div>
@@ -156,7 +156,7 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ companyDetails }) => {
                   {[...Array(5)].map((_, i) => (
                     <React.Fragment key={i}>
                       <input type="radio" id={`star${5-i}`} name={`rating-${index}`} value={5-i} className="hidden" />
-                      <label htmlFor={`star${5-i}`} className="text-4xl mr-2">&#9733;</label>
+                      <label htmlFor={`star${5-i}`} className="mr-2 text-4xl">&#9733;</label>
                     </React.Fragment>
                   ))}
                 </div>
@@ -166,15 +166,15 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ companyDetails }) => {
                     <span>{detail.Reviews} reviews</span>
                   </div>
                 </div>
-                <div className="flex justify-end p-5 gap-3">
+                <div className="flex justify-end gap-3 p-5">
                   <BiDesktop size={30} />
                   <BiWifi size={30} />
                   <PiSnowflakeBold size={30} />
                 </div>
                 <div className="flex justify-end">
-                  <span className="text-2xl font-bold flex items-end mr-4 h-full"><TbCurrencyPeso size={30} /> {detail.Price.toFixed(2)}</span>
+                  <span className="flex items-end h-full mr-4 text-2xl font-bold"><TbCurrencyPeso size={30} /> {detail.Price.toFixed(2)}</span>
                   <a href="/travel-plans">
-                    <Button className="font-bold h-14 text-lg">Reserve Now</Button>
+                    <Button className="text-lg font-bold h-14">Reserve Now</Button>
                   </a>
                 </div>
               </div>
