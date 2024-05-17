@@ -8,6 +8,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -53,21 +62,55 @@ interface Passengers {
 
 const PassengersInfo: React.FC = () => {
   return (
-    <div className="flex w-full max-w-screen-xl mx-auto space-x-3">
-      <div className="w-3/4 py-3 space-y-3">
-        <AvailSeats />
+    <div className="w-full max-w-screen-xl mx-auto">
+      <div>
+        <BreadCrumb />
+      </div>
+      <div className="flex w-full space-x-3">
+        <div className="w-3/4 py-3 space-y-3">
+          <AvailSeats />
 
-        <PassengersDetails />
-        <div className="flex items-center justify-end py-6 space-x-2">
-          <Button variant="outline">Back</Button>
-          <Button>Next</Button>
+          <PassengersDetails />
+          <div className="flex items-center justify-end py-6 space-x-2">
+            <Button variant="outline">Back</Button>
+            <Button>Next</Button>
+          </div>
+        </div>
+
+        <div className="w-1/4 py-3 ">
+          <Receipt />
         </div>
       </div>
-
-      <div className="w-1/4 py-3 ">
-        <Receipt />
-      </div>
     </div>
+  );
+};
+
+const BreadCrumb: React.FC = () => {
+  return (
+    <Breadcrumb className="py-6">
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/travel-plan" className="text-green-400">
+            Travel Plan
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage href="/passenger-info" className="text-green-400">
+            Passengers
+          </BreadcrumbPage>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Confirmation</BreadcrumbPage>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Payment Method</BreadcrumbPage>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+      </BreadcrumbList>
+    </Breadcrumb>
   );
 };
 
