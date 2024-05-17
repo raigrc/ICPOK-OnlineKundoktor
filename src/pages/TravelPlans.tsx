@@ -6,6 +6,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -38,30 +47,65 @@ import { Button } from "@/components/ui/button";
 
 interface Props {}
 
-const TravelPlans = (props: Props) => {
+const TravelPlans: React.FC = () => {
+  const handleSubmit = (data: any) => {
+    console.log("Submitted data:", data);
+  };
   return (
-    <div className="flex w-full max-w-screen-xl mx-auto space-x-3">
-      <div className="w-3/4 py-3 space-y-3">
-        {/* Travel Details */}
-        <TravelDetails />
+    <div className="w-full max-w-screen-xl mx-auto">
+      <BreadCrumb />
+      <div className="flex w-full space-x-3 ">
+        <div className="w-3/4 py-3 space-y-3">
+          {/* Travel Details */}
+          <TravelDetails />
 
-        {/* //Bus Details */}
-        <BusDetails />
+          {/* //Bus Details */}
+          <BusDetails />
 
-        {/* Passengers */}
-        <Passengers />
+          {/* Passengers */}
+          <Passengers />
 
-        {/* Contact Details */}
-        <ContactDetails />
-        <div className="flex items-center justify-end py-6">
-          <Button size="lg">Next</Button>
+          {/* Contact Details */}
+          <ContactDetails onSubmit={handleSubmit} />
+          <div className="flex items-center justify-end py-6">
+            <Button size="lg" onClick={() => handleSubmit}>
+              Next
+            </Button>
+          </div>
+        </div>
+
+        <div className="w-1/4 py-3 ">
+          <Receipt />
         </div>
       </div>
-
-      <div className="w-1/4 py-3 ">
-        <Receipt />
-      </div>
     </div>
+  );
+};
+
+const BreadCrumb: React.FC = () => {
+  return (
+    <Breadcrumb className="py-6">
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbPage className="text-green-400">
+            Travel Plan
+          </BreadcrumbPage>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Passengers</BreadcrumbPage>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Confirmation</BreadcrumbPage>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Payment Method</BreadcrumbPage>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+      </BreadcrumbList>
+    </Breadcrumb>
   );
 };
 
@@ -316,14 +360,15 @@ const Passengers: React.FC = () => {
 };
 
 const FormSchema = z.object({
-  mobileno: z.string().min(11, {
-    message: "Mobile No. must be at least 11 numbers.",
+  mobileno: z.string().min(10, {
+    message: "Please choose a seat.",
   }),
-  email: z.string().email({
-    message: "Invalid email address.",
+  email: z.string().min(2, {
+    message: "Firstname must be at least 2 characters.",
   }),
 });
-const ContactDetails: React.FC = () => {
+
+const ContactDetails: React.FC<{ onSubmit: any }> = ({ onSubmit }) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -331,6 +376,7 @@ const ContactDetails: React.FC = () => {
       email: "",
     },
   });
+
   return (
     <Card>
       <CardHeader className="border-b-2 border-primary">
@@ -350,6 +396,7 @@ const ContactDetails: React.FC = () => {
                   <FormControl>
                     <Input className="pl-36" {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -365,6 +412,7 @@ const ContactDetails: React.FC = () => {
                   <FormControl>
                     <Input className="pl-36" {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
