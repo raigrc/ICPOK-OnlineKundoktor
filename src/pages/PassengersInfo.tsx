@@ -63,9 +63,8 @@ interface Passengers {
 const PassengersInfo: React.FC = () => {
   return (
     <div className="w-full max-w-screen-xl mx-auto">
-      <div>
-        <BreadCrumb />
-      </div>
+      <BreadCrumb />
+
       <div className="flex w-full space-x-3">
         <div className="w-3/4 py-3 space-y-3">
           <AvailSeats />
@@ -96,9 +95,7 @@ const BreadCrumb: React.FC = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage className="text-green-400">
-            Passengers
-          </BreadcrumbPage>
+          <BreadcrumbPage className="text-green-400">Passengers</BreadcrumbPage>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
