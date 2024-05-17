@@ -17,7 +17,21 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        "booking-bg": "url('/src/assets/images/booking-bg.png')",
+      },
       colors: {
+        'status-critical': '#FEC3C3',
+        'status-serious': '#FFC847',
+        'status-caution': '#FBE83A',
+        'status-success': '#A7FF76',
+        'status-standby': '#80DFFF',
+        'status-off': '#D0D4D8',
+        'black-100': '#4D4D4D',
+        'black-200': '#3C3C3C',
+        'black-300': '#1E1E1E',
+        'black-400': '#111111',
+        'black-500': '#000000',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -74,6 +88,50 @@ module.exports = {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      fontSize: {
+        'h1': ['3.812rem', {
+          fontWeight: '700',
+      }],
+        'h2': ['3.062rem', {
+            fontWeight: '700',
+      }],
+        'h3': ['2.438rem', {
+            fontWeight: '700',
+      }],
+        'h4': ['1.938rem', {
+            fontWeight: '700',
+      }],
+        'h5': ['1.562rem', {
+            fontWeight: '700',
+      }],
+        'lg': ['1.250rem', {
+            fontWeight: '700',
+      }],
+        'lg-semibold': ['1.250rem', {
+            fontWeight: '700',
+      }],
+        'lg-bold': ['1.250rem', {
+            fontWeight: '700',
+      }],
+        'md': ['1rem', {
+            fontWeight: '500',
+      }],
+        'md-semibold': ['1rem', {
+            fontWeight: '600',
+      }],
+        'md-bold': ['1rem', {
+            fontWeight: '700',
+      }],
+        'sm': ['0.812rem', {
+            fontWeight: '500',
+      }],
+        'sm-semibold': ['0.812rem', {
+            fontWeight: '600',
+      }],
+        'sm-bold': ['0.812rem', {
+            fontWeight: '700',
+      }],
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
