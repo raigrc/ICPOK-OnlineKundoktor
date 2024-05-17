@@ -96,7 +96,7 @@ const BreadCrumb: React.FC = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage href="/passenger-info" className="text-green-400">
+          <BreadcrumbPage className="text-green-400">
             Passengers
           </BreadcrumbPage>
         </BreadcrumbItem>
