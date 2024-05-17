@@ -3,6 +3,7 @@ import { BiBuilding, BiLocationPlus, BiSolidTimeFive, BiChevronsRight, BiDesktop
 import { PiSnowflakeBold } from "react-icons/pi";
 import { TbCurrencyPeso } from "react-icons/tb";
 import { Button } from "../ui/button";
+import StarRating from "./StarRating";
 
 const CompanyReviews: React.FC = () => {
 
@@ -14,7 +15,7 @@ const CompanyReviews: React.FC = () => {
       "Departure": "05:00pm (GMT+)",
       "Arrival": "10:30pm (GMT+)",
       "Duration": "5h 30m",
-      "Rating": 4,
+      "Rating": 3.3,
       "Reviews": 82,
       "Price": 995.00
     },
@@ -25,7 +26,7 @@ const CompanyReviews: React.FC = () => {
       "Departure": "05:00pm (GMT+)",
       "Arrival": "10:30pm (GMT+)",
       "Duration": "5h 30m",
-      "Rating": 1,
+      "Rating": 1.0,
       "Reviews": 82,
       "Price": 995.00
     }
@@ -153,16 +154,11 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ companyDetails }) => {
             <div className="p-8">
               <div className="grid grid-rows-[auto auto auto auto] gap-3">
                 <div className="flex justify-end">
-                  {[...Array(5)].map((_, i) => (
-                    <React.Fragment key={i}>
-                      <input type="radio" id={`star${5-i}`} name={`rating-${index}`} value={5-i} className="hidden" />
-                      <label htmlFor={`star${5-i}`} className="text-4xl mr-2">&#9733;</label>
-                    </React.Fragment>
-                  ))}
+                  <StarRating rating={detail.Rating} />
                 </div>
                 <div className="flex justify-end">
                   <div className="grid grid-cols-2 mr-4">
-                    <span className="font-bold">{detail.Rating}.0</span>
+                    <span className="font-bold">{detail.Rating}</span>
                     <span>{detail.Reviews} reviews</span>
                   </div>
                 </div>
