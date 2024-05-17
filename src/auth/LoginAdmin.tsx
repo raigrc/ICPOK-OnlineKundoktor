@@ -27,18 +27,20 @@ const LoginAdmin = () => {
 
             <div className="flex items-center justify-center w-full">
               <div className="w-full px-9">
-                <Email />
-                <Password />
-                <div className="text-end my-6 text-sm">
-                  <a href="" className="">
-                    Forgot Password?
-                  </a>
-                </div>
-                <div className="text-center">
-                  <Button className="w-full py-6 text-sm font-semibold">
-                    Log in
-                  </Button>
-                </div>
+                <form action="">
+                  <Email />
+                  <Password />
+                  <div className="text-end my-6 text-sm">
+                    <a href="" className="">
+                      Forgot Password?
+                    </a>
+                  </div>
+                  <div className="text-center">
+                    <Button className="w-full py-6 text-sm font-semibold">
+                      Log in
+                    </Button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

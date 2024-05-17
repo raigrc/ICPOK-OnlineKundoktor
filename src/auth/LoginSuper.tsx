@@ -12,13 +12,15 @@ const LoginSuper = () => {
             <div className="flex items-center justify-center w-full">
               <div className="w-full">
                 <p className="text-h3 mb-6">Login</p>
-                <Email />
-                <Password />
-                <div className="text-center">
-                  <Button className="w-full mt-6 py-6 text-sm font-semibold">
-                    Log in
-                  </Button>
-                </div>
+                <form action="">
+                  <Email />
+                  <Password />
+                  <div className="text-center">
+                    <Button className="w-full mt-6 py-6 text-sm font-semibold">
+                      Log in
+                    </Button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

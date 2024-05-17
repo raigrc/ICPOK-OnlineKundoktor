@@ -30,27 +30,29 @@ const Login = () => {
 
             <div className="flex items-center justify-center w-full">
               <div className="w-full px-9">
-                <Email />
-                <Password />
-                <div className="text-end my-6 text-sm">
-                  <a href="" className="">
-                    Forgot Password?
-                  </a>
-                </div>
-                <div className="text-center">
-                  <Button className="w-full py-6 text-sm font-semibold">
-                    Log in
-                  </Button>
-                  <div className="my-6 flex items-center">
-                    <hr className="flex-grow border-t border-gray-300" />
-                    <span className="mx-4 text-sm">or log in with</span>
-                    <hr className="flex-grow border-t border-gray-300" />
+                <form action="">
+                  <Email />
+                  <Password />
+                  <div className="text-end my-6 text-sm">
+                    <a href="" className="">
+                      Forgot Password?
+                    </a>
                   </div>
-                  <Button className="w-full py-6 text-sm" variant={"outline"}>
-                    <FcGoogle className="mr-2" />
-                    Google
-                  </Button>
-                </div>
+                  <div className="text-center">
+                    <Button className="w-full py-6 text-sm font-semibold">
+                      Log in
+                    </Button>
+                    <div className="my-6 flex items-center">
+                      <hr className="flex-grow border-t border-gray-300" />
+                      <span className="mx-4 text-sm">or log in with</span>
+                      <hr className="flex-grow border-t border-gray-300" />
+                    </div>
+                    <Button className="w-full py-6 text-sm" variant={"outline"}>
+                      <FcGoogle className="mr-2" />
+                      Google
+                    </Button>
+                  </div>
+                </form>
                 <div className="text-center mt-6">
                   <p className="text-sm">
                     Dont have an account?{" "}
