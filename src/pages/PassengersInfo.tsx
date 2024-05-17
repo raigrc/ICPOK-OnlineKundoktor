@@ -139,7 +139,7 @@ const AvailSeats: React.FC = () => {
               name="seats"
               render={({ field }) => (
                 <FormItem className="relative flex items-center space-x-2">
-                  <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                  <FormLabel className="absolute z-50 -translate-y-1/2 top-1/2 left-4">
                     Seat(s):
                   </FormLabel>
                   <FormControl>
@@ -213,7 +213,7 @@ const PassengersDetails: React.FC = () => {
                   name={`firstname${passenger.id}`}
                   render={({ field }) => (
                     <FormItem className="relative">
-                      <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                      <FormLabel className="absolute z-50 -translate-y-1/2 top-1/2 left-4">
                         Firstname:
                       </FormLabel>
                       <FormControl>
@@ -233,7 +233,7 @@ const PassengersDetails: React.FC = () => {
                   name={`middlename${passenger.id}`}
                   render={({ field }) => (
                     <FormItem className="relative">
-                      <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                      <FormLabel className="absolute z-50 -translate-y-1/2 top-1/2 left-4">
                         Middlename:
                       </FormLabel>
                       <FormControl>
@@ -253,7 +253,7 @@ const PassengersDetails: React.FC = () => {
                   name={`lastname${passenger.id}`}
                   render={({ field }) => (
                     <FormItem className="relative">
-                      <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                      <FormLabel className="absolute z-50 -translate-y-1/2 top-1/2 left-4">
                         Lastname:
                       </FormLabel>
                       <FormControl>
@@ -273,7 +273,7 @@ const PassengersDetails: React.FC = () => {
                   name={`lastname${passenger.id}`}
                   render={({ field }) => (
                     <FormItem className="relative">
-                      <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                      <FormLabel className="absolute z-50 -translate-y-1/2 top-1/2 left-4">
                         Suffix:
                       </FormLabel>
                       <Select>
@@ -300,7 +300,7 @@ const PassengersDetails: React.FC = () => {
                   name={`lastname${passenger.id}`}
                   render={({ field }) => (
                     <FormItem className="relative">
-                      <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                      <FormLabel className="absolute z-50 -translate-y-1/2 top-1/2 left-4">
                         Gender:
                       </FormLabel>
                       <Select>
