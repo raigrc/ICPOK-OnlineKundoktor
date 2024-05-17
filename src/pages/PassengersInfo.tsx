@@ -17,6 +17,14 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -259,6 +267,59 @@ const PassengersDetails: React.FC = () => {
                     </FormItem>
                   )}
                 />
+
+                <FormField
+                  control={form.control}
+                  name={`lastname${passenger.id}`}
+                  render={({ field }) => (
+                    <FormItem className="relative">
+                      <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                        Suffix:
+                      </FormLabel>
+                      <Select>
+                        <FormControl>
+                          <SelectTrigger className="pl-[7.5rem]">
+                            <SelectValue placeholder="Choose your suffix" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Nan">None</SelectItem>
+                          <SelectItem value="senior">Sr.</SelectItem>
+                          <SelectItem value="junior">Jr.</SelectItem>
+                          <SelectItem value="second">II</SelectItem>
+                          <SelectItem value="third">III</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name={`lastname${passenger.id}`}
+                  render={({ field }) => (
+                    <FormItem className="relative">
+                      <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
+                        Gender:
+                      </FormLabel>
+                      <Select>
+                        <FormControl>
+                          <SelectTrigger className="pl-[7.5rem]">
+                            <SelectValue placeholder="Select your Gender" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Nan">Male</SelectItem>
+                          <SelectItem value="senior">Female</SelectItem>
+                          <SelectItem value="junior">Preffered not to say</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={form.control}
                   name={`discounts${passenger.id}`}
