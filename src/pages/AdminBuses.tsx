@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { BiPlus } from "react-icons/bi";
-import SearchBar from "../components/input-fields/search-bar"
+import SearchBar from "../components/admin-components/search-bar";
+import Pagination from "../components/admin-components/pagination";
 
 const AdminBuses = () => {
   return <div className="bg-black-200 h-full">
@@ -17,6 +18,9 @@ const AdminBuses = () => {
             <div>
                 <SearchBar />
             </div>
+        </div>
+        <div>
+            <Pagination />
         </div>
     </div>
 </div>;
