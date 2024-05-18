@@ -15,7 +15,7 @@ const CompanyReviews: React.FC = () => {
       "Departure": "05:00pm (GMT+)",
       "Arrival": "10:30pm (GMT+)",
       "Duration": "5h 30m",
-      "Rating": 3.3,
+      "Rating": 4.5,
       "Reviews": 82,
       "Price": 995.00
     },
