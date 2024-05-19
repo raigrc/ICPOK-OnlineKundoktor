@@ -27,7 +27,7 @@ const OpenModal = () => (
         </div>
         <Dialog.Close asChild>
           <Button 
-            className="bg-white text-black focus:shadow-black absolute top-[27px] right-[27px] inline-flex h-[30px] w-[30px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
+            className="bg-white text-black focus:shadow-black absolute top-[25px] right-[27px] inline-flex h-[32px] w-[30px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
             aria-label="Close">
             X
           </Button>
