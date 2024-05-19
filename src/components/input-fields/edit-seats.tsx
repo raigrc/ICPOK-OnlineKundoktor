@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from "../ui/input";
-import { Button } from "@/components/ui/button";
+import EditSeatsModal from '../admin-components/edit-seats-modal';
 
 type EditSeatsProps = {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -10,7 +10,7 @@ type EditSeatsProps = {
 const editSeats: React.FC<EditSeatsProps> = ({ onChange, value, ...rest }) => {
   return (<>
     <span>
-      <Button className='absolute right-0 px-3 my-1 mr-8 font-bold text-sm z-10'>Edit</Button>
+      <EditSeatsModal/>
     </span>
     <Input
       label="Seats: "
