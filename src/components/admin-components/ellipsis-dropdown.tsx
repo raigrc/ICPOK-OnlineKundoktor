@@ -1,6 +1,7 @@
 import { IoEllipsisHorizontal } from "react-icons/io5";
 import { Button } from "../ui/button";
 import * as Popover from '@radix-ui/react-popover';
+import OpenModal from "../admin-components/open-modal";
 
 const EllipsisDropdown = ({ id }: { id: number | string }) => {
     return (<div className="flex justify-center items-center">
@@ -11,7 +12,7 @@ const EllipsisDropdown = ({ id }: { id: number | string }) => {
             </Popover.Trigger>
             <Popover.Portal>
             <Popover.Content className="PopoverContent grid grid-cols-1 p-5 bg-black-300 rounded-md" sideOffset={5}>
-                <Button className="bg-transparent text-white hover:bg-black-200">Open</Button>
+                <OpenModal/>
                 <Button className="bg-transparent text-white hover:bg-black-200">Edit</Button>
                 <Button className="bg-transparent text-white hover:bg-black-200">Remove</Button>
             </Popover.Content>
