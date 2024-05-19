@@ -29,6 +29,39 @@ const CompanyReviews: React.FC = () => {
       "Rating": 1.0,
       "Reviews": 82,
       "Price": 995.00
+    },
+    {
+      "Company": "DLTB Co.",
+      "From": "Cubao, Manila",
+      "To": "Legazpi Grand Central Terminal, Albay",
+      "Departure": "05:00pm (GMT+)",
+      "Arrival": "10:30pm (GMT+)",
+      "Duration": "5h 30m",
+      "Rating": 1.0,
+      "Reviews": 82,
+      "Price": 995.00
+    },
+    {
+      "Company": "DLTB Co.",
+      "From": "Cubao, Manila",
+      "To": "Legazpi Grand Central Terminal, Albay",
+      "Departure": "05:00pm (GMT+)",
+      "Arrival": "10:30pm (GMT+)",
+      "Duration": "5h 30m",
+      "Rating": 1.0,
+      "Reviews": 82,
+      "Price": 995.00
+    },
+    {
+      "Company": "DLTB Co.",
+      "From": "Cubao, Manila",
+      "To": "Legazpi Grand Central Terminal, Albay",
+      "Departure": "05:00pm (GMT+)",
+      "Arrival": "10:30pm (GMT+)",
+      "Duration": "5h 30m",
+      "Rating": 1.0,
+      "Reviews": 82,
+      "Price": 995.00
     }
   ];
 

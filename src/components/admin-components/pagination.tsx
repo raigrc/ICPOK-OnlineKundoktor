@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
-const Pagination = () => {
-  return <>
+const Pagination = ({ className }: { className?: string }) => {
+  return <div className={className}>
     <div className="flex justify-between flex-wrap">
         <div className="flex items-center">
             1 - 4 out of 1000 Models
@@ -28,7 +28,7 @@ const Pagination = () => {
             </div>
         </div>
     </div>
-  </>;
+  </div>;
 };
 
 export default Pagination;
