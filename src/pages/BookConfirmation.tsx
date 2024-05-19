@@ -1,6 +1,8 @@
+import React from "react";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -18,7 +20,6 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import React from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMonitor } from "react-icons/md";
 import { FaWifi } from "react-icons/fa";
@@ -32,29 +33,20 @@ import { IoPerson } from "react-icons/io5";
 import { FaBusSimple } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 import { IoMdAdd } from "react-icons/io";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { GoPerson } from "react-icons/go";
 import { useForm } from "react-hook-form";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { FiPhone } from "react-icons/fi";
+import { IoMailOutline } from "react-icons/io5";
 
 interface Props {}
 
-const TravelPlans: React.FC = () => {
-  const handleSubmit = (data: any) => {
-    console.log("Submitted data:", data);
-  };
+const BookConfirmation = (props: Props) => {
   return (
-    <div className="w-full max-w-screen-xl mx-auto">
+    <div className="w-full max-w-screen-xl mx-auto ">
       <BreadCrumb />
-      <div className="flex w-full space-x-3 ">
+
+      <div className="flex w-full space-x-3">
         <div className="w-3/4 py-3 space-y-3">
           {/* Travel Details */}
           <TravelDetails />
@@ -63,19 +55,56 @@ const TravelPlans: React.FC = () => {
           <BusDetails />
 
           {/* Passengers */}
-          <Passengers />
+          <Passenger />
 
           {/* Contact Details */}
-          <ContactDetails onSubmit={handleSubmit} />
-          <div className="flex items-center justify-end py-6">
-            <Button size="lg" onClick={() => handleSubmit}>
-              Next
+          <ContactDetails />
+          <div className="flex items-center justify-end py-6 space-x-3">
+            <Button size="lg" variant="outline">
+              Back
             </Button>
+            <Button size="lg">Next</Button>
           </div>
         </div>
 
         <div className="w-1/4 py-3 ">
-          <Receipt />
+          <Card className="sticky top-2">
+            <CardHeader className="border-b-2 border-primary">
+              <CardTitle>Receipt</CardTitle>
+            </CardHeader>
+            <CardContent className="h-56">
+              <div className="flex flex-row items-center justify-between flex-1">
+                <h3>Tickets</h3>
+                <div className="flex items-center justify-between w-1/4">
+                  <p>&#8369;</p>
+                  <p>999.00</p>
+                </div>
+              </div>
+              <div className="flex flex-row items-center justify-between flex-1">
+                <h3>Taxes</h3>
+                <div className="flex items-center justify-between w-1/4">
+                  <p>&#8369;</p>
+                  <p>50.00</p>
+                </div>
+              </div>
+              <div className="flex flex-row items-center justify-between flex-1">
+                <h3>Discount</h3>
+                <div className="flex items-center justify-between w-1/4 text-green-400">
+                  <p>&#8369;</p>
+                  <p>-50.00</p>
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="border-t-2 border-primary">
+              <div className="flex flex-row items-center justify-between flex-1">
+                <h3>Total</h3>
+                <div className="flex items-center justify-between w-1/4">
+                  <p>&#8369;</p>
+                  <p>999.00</p>
+                </div>
+              </div>
+            </CardFooter>
+          </Card>
         </div>
       </div>
     </div>
@@ -87,17 +116,21 @@ const BreadCrumb: React.FC = () => {
     <Breadcrumb className="py-6">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbPage className="text-green-400">
+          <BreadcrumbLink href="/travel-plan" className="text-green-400">
             Travel Plan
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/passenger-info" className="text-green-400">
+            Passengers
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage className="text-green-400">
+            Confirmation
           </BreadcrumbPage>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Passengers</BreadcrumbPage>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Confirmation</BreadcrumbPage>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -274,188 +307,107 @@ const BusDetails: React.FC = () => {
   );
 };
 
-const Passengers: React.FC = () => {
-  //! NEED TO WORK ON BUTTONS
-  const priceList = [
+const Passenger: React.FC = () => {
+  const passengerList = [
     {
-      Adult: "999.00",
-      Children: "499.00",
-      Infant: "99.00",
+      Name: "Lorenz Palomares Artillagas ",
+      Age: "Adult",
+      Sex: "Male",
+      Disabilities: "PWD",
+    },
+    {
+      Name: "Lorenz Palomares Robles",
+      Age: "Child",
+      Sex: "Male",
+      Disabilities: "",
+    },
+    {
+      Name: "Anne Palomares Robles",
+      Age: "Infant",
+      Sex: "Female",
+      Disabilities: "",
     },
   ];
+
+  const seatList = ["1A", "1B", "1C"];
   return (
     <Card>
       <CardHeader className="border-b-2 border-primary">
         <CardTitle>Passengers</CardTitle>
       </CardHeader>
-      <CardContent className="py-3 space-y-3">
-        {/* ADULTS */}
-        <div className="flex items-center justify-between">
-          <div id="left">
-            <h1 className="text-xl font-semibold">
-              Adults
-              <span className="px-2 text-sm text-red-400">
-                &#8369; {priceList[0].Adult}
-              </span>
-            </h1>
-            <p className="text-sm text-gray-400">12 yrs old and above</p>
+      {passengerList.map((details, index) => (
+        <CardContent className="py-3 space-y-3" key={index}>
+          {/* Passenger 1 */}
+          <div>
+            <div className="flex">
+              <div className="flex w-40 space-x-2">
+                <GoPerson className="w-6 h-6" />
+                <p>#1</p>
+              </div>
+              <div className="flex divide-x-2">
+                <pre>:</pre>
+                <p className="px-2">{details.Name}</p>
+                <p className="px-2">{details.Age}</p>
+                <p className="px-2">{details.Sex}</p>
+                <p className="px-2">{details.Disabilities}</p>
+              </div>
+            </div>
           </div>
-          <div className="flex divide-x-2" id="right">
-            <button>
-              <FiMinus className="w-6 h-6" />
-            </button>
-            <p className="px-2 ">0</p>
-            <button>
-              <IoMdAdd className="w-6 h-6" />
-            </button>
+        </CardContent>
+      ))}
+      <CardFooter className="border-t-2 border-primary">
+        <CardContent className="flex items-center py-3 ">
+          <h1 className="w-40 text-xl font-bold">Seat(s)</h1>
+          <div className="flex items-center">
+            <pre>:</pre>
+            <h2>{seatList.join(", ")}</h2>
           </div>
-        </div>
-
-        {/* CHILDREN */}
-        <div className="flex items-center justify-between">
-          <div id="left">
-            <h1 className="text-xl font-semibold">
-              Children
-              <span className="px-2 text-sm text-red-400">
-                &#8369; {priceList[0].Children}
-              </span>
-            </h1>
-            <p className="text-sm text-gray-400">12 yrs old and above</p>
-          </div>
-          <div className="flex divide-x-2" id="right">
-            <button>
-              <FiMinus className="w-6 h-6" />
-            </button>
-            <p className="px-2 ">0</p>
-            <button>
-              <IoMdAdd className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-
-        {/* INFANT */}
-        <div className="flex items-center justify-between">
-          <div id="left">
-            <h1 className="text-xl font-semibold">
-              Infant
-              <span className="px-2 text-sm text-red-400">
-                &#8369; {priceList[0].Infant}
-              </span>
-            </h1>
-            <p className="text-sm text-gray-400">12 yrs old and above</p>
-          </div>
-          <div className="flex divide-x-2" id="right">
-            <button>
-              <FiMinus className="w-6 h-6" />
-            </button>
-            <p className="px-2 ">0</p>
-            <button>
-              <IoMdAdd className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      </CardContent>
+        </CardContent>
+      </CardFooter>
     </Card>
   );
 };
 
-const FormSchema = z.object({
-  mobileno: z.string().min(10, {
-    message: "Please choose a seat.",
-  }),
-  email: z.string().min(2, {
-    message: "Firstname must be at least 2 characters.",
-  }),
-});
-
-const ContactDetails: React.FC<{ onSubmit: any }> = ({ onSubmit }) => {
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      mobileno: "",
-      email: "",
+const ContactDetails: React.FC = () => {
+  const contactDetails = [
+    {
+      ContactNumber: "+63 9123456789",
+      Email: "example@mail.com",
     },
-  });
-
+  ];
   return (
     <Card>
       <CardHeader className="border-b-2 border-primary">
         <CardTitle>Contact Details</CardTitle>
       </CardHeader>
       <CardContent className="py-3 space-y-3">
-        <Form {...form}>
-          <form>
-            <FormField
-              control={form.control}
-              name="mobileno"
-              render={({ field }) => (
-                <FormItem className="relative">
-                  <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
-                    Contact Number:
-                  </FormLabel>
-                  <FormControl>
-                    <Input className="pl-36" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem className="relative">
-                  <FormLabel className="absolute -translate-y-1/2 top-1/2 left-4">
-                    Email Address:
-                  </FormLabel>
-                  <FormControl>
-                    <Input className="pl-36" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </form>
-        </Form>
+        <div>
+          <div className="flex w-3/5">
+            <div className="flex w-1/3 space-x-2">
+              <FiPhone className="w-6 h-6" />
+              <p>Contact Number</p>
+            </div>
+            <div className="flex items-center">
+              <pre>:</pre>
+              <p>{contactDetails[0].ContactNumber}</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="flex w-3/5">
+            <div className="flex w-1/3 space-x-2">
+              <IoMailOutline className="w-6 h-6" />
+              <p>Email Address</p>
+            </div>
+            <div className="flex items-center">
+              <pre>:</pre>
+              <p>{contactDetails[0].Email}</p>
+            </div>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
 };
 
-const Receipt: React.FC = () => {
-  return (
-    <Card className="sticky top-2">
-      <CardHeader className="border-b-2 border-primary">
-        <CardTitle>Receipt</CardTitle>
-      </CardHeader>
-      <CardContent className="h-56">
-        <div className="flex flex-row items-center justify-between flex-1">
-          <h3>Tickets</h3>
-          <div className="flex items-center justify-between w-1/4">
-            <p>&#8369;</p>
-            <p>999.00</p>
-          </div>
-        </div>
-        <div className="flex flex-row items-center justify-between flex-1">
-          <h3>Taxes</h3>
-          <div className="flex items-center justify-between w-1/4">
-            <p>&#8369;</p>
-            <p>50.00</p>
-          </div>
-        </div>
-      </CardContent>
-      <CardFooter className="border-t-2 border-primary">
-        <div className="flex flex-row items-center justify-between flex-1">
-          <h3>Total</h3>
-          <div className="flex items-center justify-between w-1/4">
-            <p>&#8369;</p>
-            <p>999.00</p>
-          </div>
-        </div>
-      </CardFooter>
-    </Card>
-  );
-};
-
-export default TravelPlans;
+export default BookConfirmation;

@@ -7,7 +7,6 @@ import Layout from "./components/ui/Layout";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
-import TravelPlans from "./pages/TravelPlans";
 import About from "./pages/About";
 import Schedule from "./pages/Schedule";
 import Contact from "./pages/Contact";
@@ -17,6 +16,9 @@ import LoginAdmin from "./auth/LoginAdmin";
 import LoginEmployee from "./auth/LoginEmployee";
 import LoginSuper from "./auth/LoginSuper";
 import PassengersInfo from "./pages/PassengersInfo";
+import TravelPlans from "./pages/TravelPlans";
+import BookConfirmation from "./pages/BookConfirmation";
+
 
 const router = createBrowserRouter([
   {
@@ -54,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "/travel-plan",
         element: <TravelPlans />,
+      },
+      {
+        path: "/book-confirmation",
+        element: <BookConfirmation />,
       },
     ],
   },

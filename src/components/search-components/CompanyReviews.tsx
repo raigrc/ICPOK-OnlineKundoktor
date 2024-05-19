@@ -34,6 +34,7 @@ const CompanyReviews: React.FC = () => {
 
   return (<div className='bg-black-100 px-20'>
     <div className="grid grid-cols-7 border-b-2 black text-center">
+
       <DateFilter />
     </div>
     <CompanyDetails companyDetails={companyDetails} />
@@ -162,15 +163,15 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ companyDetails }) => {
                     <span>{detail.Reviews} reviews</span>
                   </div>
                 </div>
-                <div className="flex justify-end p-5 gap-3">
+                <div className="flex justify-end gap-3 p-5">
                   <BiDesktop size={30} />
                   <BiWifi size={30} />
                   <PiSnowflakeBold size={30} />
                 </div>
                 <div className="flex justify-end">
-                  <span className="text-2xl font-bold flex items-end mr-4 h-full"><TbCurrencyPeso size={30} /> {detail.Price.toFixed(2)}</span>
+                  <span className="flex items-end h-full mr-4 text-2xl font-bold"><TbCurrencyPeso size={30} /> {detail.Price.toFixed(2)}</span>
                   <a href="/travel-plans">
-                    <Button className="font-bold h-14 text-lg">Reserve Now</Button>
+                    <Button className="text-lg font-bold h-14">Reserve Now</Button>
                   </a>
                 </div>
               </div>
