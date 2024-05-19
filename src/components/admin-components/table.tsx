@@ -1,4 +1,4 @@
-import { IoEllipsisHorizontal } from "react-icons/io5";
+import EllipsisDropdown from "./ellipsis-dropdown";
 
 interface Column {
     key?: string;
@@ -28,9 +28,7 @@ const Table: React.FC<{ columns: Column[]; data: RowData[] }> = ({ columns, data
                     {columns.map((column) => (
                         <td key={column.key || `${index}-${column.key}`} className="px-6 py-4 whitespace-nowrap">
                         {column.key === 'actions' ? (
-                            <div className="flex justify-center items-center">
-                                <IoEllipsisHorizontal size={25} className="cursor-pointer" />
-                            </div>
+                            <EllipsisDropdown id={row[column.key]} />
                         ) : (
                             column.key && row[column.key]
                         )}
