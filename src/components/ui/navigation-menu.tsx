@@ -27,7 +27,7 @@ const NavigationMenuList = React.forwardRef<
   <NavigationMenuPrimitive.List
     ref={ref}
     className={cn(
-      "group flex flex-1 list-none items-center justify-between space-x-1 max-w-screen-xl mx-auto",
+      "group flex flex-1 px-20 list-none items-center justify-between space-x-1 max-w-screen-xl mx-auto",
       className
     )}
     {...props}

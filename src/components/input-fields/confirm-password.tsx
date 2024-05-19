@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Input } from "../ui/input";
 
 type confirmPasswordProps = {
@@ -6,9 +6,14 @@ type confirmPasswordProps = {
   value?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-const confirmPassword: React.FC<confirmPasswordProps> = ({ onChange, value, ...rest }) => {
+const confirmPassword: React.FC<confirmPasswordProps> = ({
+  onChange,
+  value,
+  ...rest
+}) => {
   return (
     <Input
+      type="password"
       label="Confirm Password: "
       placeholder="***********"
       className="bg-transparent border-white rounded-md py-6 pl-[150px]"

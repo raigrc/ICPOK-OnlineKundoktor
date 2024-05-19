@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Input } from "../ui/input";
 
 type emailProps = {
@@ -9,6 +9,7 @@ type emailProps = {
 const email: React.FC<emailProps> = ({ onChange, value, ...rest }) => {
   return (
     <Input
+      type="email"
       label="Email: "
       placeholder="sample@gmail.com"
       className="bg-transparent border-white rounded-md py-6 pl-[60px] mb-6"
