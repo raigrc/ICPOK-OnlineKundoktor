@@ -10,7 +10,7 @@ type EditSeatsProps = {
 const editSeats: React.FC<EditSeatsProps> = ({ onChange, value, ...rest }) => {
   return (<>
     <span>
-      <Button className='absolute right-0 px-3 my-1 mr-8 font-bold text-sm z-10'>Search</Button>
+      <Button className='absolute right-0 px-3 my-1 mr-8 font-bold text-sm z-10'>Edit</Button>
     </span>
     <Input
       label="Seats: "
