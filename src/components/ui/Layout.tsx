@@ -84,7 +84,7 @@ const Layout = (props: Props) => {
               </NavigationMenuLink>
             </NavLink>
 
-            <NavigationMenuLink className="ml-2 space-x-2">
+            <NavigationMenuLink className="ml-2 space-x-4">
               <NavLink to="/login">
                 <Button variant="outline">Login</Button>
               </NavLink>
