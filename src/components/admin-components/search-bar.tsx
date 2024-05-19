@@ -15,7 +15,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onChange, value, ...rest }) => {
                 <TbZoom size={30} className="absolute ml-6 mt-4" />
             </span>
             <span>
-                <Button className='absolute right-0 px-5 py-5 mt-3 mr-28 font-bold text-md'>Search</Button>
+                <Button className='absolute right-0 px-5 py-5 mt-3 mr-28 font-bold text-md z-10'>Search</Button>
             </span>
         </div>
         <Input
