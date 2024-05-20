@@ -1,25 +1,29 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { Button } from "../ui/button";
-import EditModelName from '../input-fields/edit-model-name';
-import EditSeats from '../input-fields/edit-seats';
+import { BiPlus } from "react-icons/bi";
+import EditFleetNumber from '../input-fields/edit-fleet-number';
+import BusType from '../input-fields/bus-type';
+import PlateNumber from '../input-fields/edit-plate-number';
 
 const EditModal = () => (
   <Dialog.Root>
     <Dialog.Trigger asChild>
-      <Button className="bg-transparent text-white hover:bg-black-200">
-        Edit
+      <Button className='w-full p-7 font-bold text-md gap-2'>
+        <BiPlus size={20} />
+        Create New
       </Button>
     </Dialog.Trigger>
     <Dialog.Portal>
       <Dialog.Overlay className="bg-black-200 data-[state=open]:animate-overlayShow fixed inset-0 z-20 opacity-75" />
       <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[100vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-black-300 p-[25px] shadow-[0px_10px_38px_rgba(0, 0, 0, 0.35), 0px_10px_20px_rgba(0, 0, 0, 0.2)] focus:outline-none z-20">
         <Dialog.Title className="text-white m-0 text-2xl font-medium">
-          Edit Model
+          New Model
         </Dialog.Title>
-        <div className="grid grid-rows-3 gap-y-5 mt-4">
-          <div><EditModelName/></div>
-          <div><EditSeats/></div>
-          <Button className="text-md font-bold p-6">Update</Button>
+        <div className="grid grid-rows-3 mt-6">
+          <div><EditFleetNumber/></div>
+          <div><BusType/></div>
+          <div><PlateNumber/></div>
+          <Button className="text-md font-bold p-6">Add Bus</Button>
         </div>
         <Dialog.Close asChild>
           <Button 

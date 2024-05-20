@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { BiPlus } from "react-icons/bi";
 import SearchBar from "../components/admin-components/search-bar";
 import Pagination from "../components/admin-components/pagination";
 import Table from "../components/admin-components/table";
+import AddModal from "../components/admin-components/add-modal";
 
 const AdminBuses = () => {
     const columns = [
@@ -35,7 +34,7 @@ const AdminBuses = () => {
             <div className="text-4xl font-semibold">Buses</div>
         </div>
         <div>
-            <Button className='w-full p-7 font-bold text-md gap-2'><BiPlus size={20} />New Model</Button>
+            <AddModal />
         </div>
     </div>
     <div className="pt-7">

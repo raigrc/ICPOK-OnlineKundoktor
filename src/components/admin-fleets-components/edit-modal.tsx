@@ -1,7 +1,8 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { Button } from "../ui/button";
-import EditModelName from '../input-fields/edit-model-name';
-import EditSeats from '../input-fields/edit-seats';
+import EditFleetNumber from '../input-fields/edit-fleet-number';
+import BusType from '../input-fields/bus-type';
+import PlateNumber from '../input-fields/edit-plate-number';
 
 const EditModal = () => (
   <Dialog.Root>
@@ -16,9 +17,10 @@ const EditModal = () => (
         <Dialog.Title className="text-white m-0 text-2xl font-medium">
           Edit Model
         </Dialog.Title>
-        <div className="grid grid-rows-3 gap-y-5 mt-4">
-          <div><EditModelName/></div>
-          <div><EditSeats/></div>
+        <div className="grid grid-rows-3 mt-6">
+          <div><EditFleetNumber/></div>
+          <div><BusType/></div>
+          <div><PlateNumber/></div>
           <Button className="text-md font-bold p-6">Update</Button>
         </div>
         <Dialog.Close asChild>
