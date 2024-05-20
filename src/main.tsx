@@ -18,7 +18,9 @@ import LoginSuper from "./auth/LoginSuper";
 import PassengersInfo from "./pages/PassengersInfo";
 import TravelPlans from "./pages/TravelPlans";
 import BookConfirmation from "./pages/BookConfirmation";
-
+import AdminBuses from "./pages/AdminBuses";
+import AdminBusFleets from "./pages/AdminBusFleets";
+import AdminTerminals from "./pages/AdminTerminals";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +62,18 @@ const router = createBrowserRouter([
       {
         path: "/book-confirmation",
         element: <BookConfirmation />,
+      },
+      {
+        path: "/admin/buses",
+        element: <AdminBuses />,
+      },
+      {
+        path: "/admin/buses/fleet",
+        element: <AdminBusFleets />,
+      },
+      {
+        path: "/admin/terminals",
+        element: <AdminTerminals />,
       },
     ],
   },
